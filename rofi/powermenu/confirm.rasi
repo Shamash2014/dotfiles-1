@@ -1,0 +1,48 @@
+
+configuration {
+    font: "VictorMono Nerd Font Mono 15";
+    terminal: "alacritty";
+    hover-select: true;
+}
+
+@import "styles/nord.rasi"
+
+window {
+    background-color: @background;
+    text-color: @foreground;
+    border-color: @border;
+    border: 7px;
+    height: 11%;
+    width: 12%;
+    xoffset: 0;
+    yoffset: -100px;
+}
+
+listview {
+    background-color: @background;
+    border: 0% 0% 0% 0%;
+    scrollbar: false;
+}
+
+inputbar {
+    background-color: @background;
+    text-color: @foreground;
+    border-color: @border-alt;
+    children: [prompt, entry];
+    margin: 3% 2% 0% 2%;
+    border: 0% 0% 0.3% 0%;
+    padding: 0.75% 0% 0.75% 0%;
+    spacing: 0.3%;
+    expand: false;
+    font: "VictorMono Nerd Font Mono 16";
+}
+
+entry {
+    background-color: @background;
+    text-color: @foreground;
+    placeholder-color: @foreground;
+    font: "VictorMono Nerd Font Mono 16";
+    placeholder: "y/n";
+    expand: true;
+    blink: true;
+}

@@ -1,0 +1,114 @@
+
+configuration {
+    modi: [drun, window, combi];
+    combi-modi: [drun, window];
+    font: "VictorMono Nerd Font Mono 15";
+    icon-theme: "Papirus";
+    show-icons: true;
+    sidebar-mode: false;
+    terminal: "alacritty";
+    display-drun: "";
+    location: 0;
+}
+
+@import "styles/nord.rasi"
+
+* {
+    //background: #292930;
+}
+
+window {
+    background-color: @background;
+    text-color: @foreground;
+    border-color: @border;
+    border: 7px;
+    height: 31%;
+    width: 15%;
+    xoffset: 0;
+    yoffset: 0;
+}
+
+element {
+    background-color: @background;
+    text-color: @foreground;
+    padding: 0.5%;
+}
+
+element-text {
+    background-color: #00000000;
+    font: "VictorMono Nerd Font Mono 30";
+    text-color: inherit;
+    horizontal-align: 0;
+    vertical-align: 0.5;
+    text-color: inherit;
+}
+
+listview {
+    background-color: @background;
+    padding: 2%;
+    spacing: 5px;
+    columns: 1;
+    border: 0% 0% 0% 0%;
+    scrollbar: false;
+    dynamic: true;
+    cycle: false;
+}
+
+inputbar {
+    background-color: @background;
+    text-color: @foreground;
+    border-color: @border-alt;
+    children: [prompt];
+    margin: 3% 2% 0% 2%;
+    //border: 0.3% 0.12% 0.3% 0.12%;
+    border: 0% 0% 0.3% 0%;
+    padding: 0.75% 0% 0.75% 0%;
+    //border-radius: 1% 0.5% 1% 0.5%;
+    spacing: 0.3%;
+    expand: false;
+    font: "VictorMono Nerd Font Mono 16";
+}
+
+entry {
+    enabled: false;
+    background-color: @background;
+    text-color: @foreground;
+    placeholder-color: @foreground;
+    font: "VictorMono Nerd Font Mono 16";
+    placeholder: "Search";
+    expand: true;
+    blink: true;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    background-color:               @urgent;
+    text-color:                     @foreground;
+}
+
+element normal.active,
+element alternate.active {
+    background-color:               @background-alt;
+    text-color:                     @foreground;
+}
+
+element selected {
+    background-color:               @selected;
+    text-color:                     @foreground;
+    border-radius: 0.2% 0.1% 0.2% 0.1%;
+}
+
+element selected.urgent {
+    background-color:               @urgent;
+    text-color:                     @foreground;
+}
+
+element selected.active {
+    background-color:               @background-alt;
+    color:                          @foreground;
+}
+
+element.normal,
+element.alternate.normal {
+    background-color: @background;
+}
