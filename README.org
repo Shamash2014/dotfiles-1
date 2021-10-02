@@ -4,28 +4,28 @@
 
 **  General file outline
 
-- alacritty
+*** alacritty
 Holds my alacritty config.
 
-- emacs
+*** emacs
 Holds my emacs config.
 
-- rofi
+*** rofi
 Holds my rofi configs.
 
-- picom
+*** picom
 Holds my jonaburg picom config.
 
-- awesome
+*** awesome
 Holds my awesome configs.
 
-- scripts
+*** scripts
 Holds all the scripts used in my setup.
 
--  wallpapers
+*** wallpapers
 Holds wallpapers for each theme.
 
-- .theme
+*** .theme
 Theme controller (currently unused as I currently only have one theme)
 
 ** Changelog
