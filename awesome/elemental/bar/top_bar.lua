@@ -8,36 +8,13 @@ local helpers    = require("utils.helpers")
 
 
 awful.screen.connect_for_each_screen(function(s)
-      -- clock
-      mytextclock = wibox.widget.textclock()
-      
       -- Each screen has its own tag table.
-      awful.tag({ " ⭘ " }, s, awful.layout.layouts[1])
-      awful.tag.font = "VictorMono Nerd Font Mono 25"
+      awful.tag({ " ⭘ ", " ⭘ ", " ⭘ " }, s, awful.layout.layouts[1])
+      awful.tag.font = "VictorMono Nerd Font Mono 24"
       
-      -- Rofi drun widget
-      local run_button = wibox.widget.textbox()
-      run_button.font = "VictorMono Nerd Font Mono 25"
-      run_button.text = " ﰜ "
-      run_button:buttons(gears.table.join(
-			    awful.button({ }, 1, function () awful.util.spawn_with_shell("~/.scripts/rofi_drun.sh") end)
-      ))
-      -- run_button:buttons(gears.table.join(
-      -- 			    awful.button({ }, 1, dashboard_show())
-      -- ))
-
-
-      -- Rofi powermenu widget 
-      local power_button = wibox.widget.textbox()
-      power_button.font = "VictorMono Nerd Font Mono 25"
-      power_button.text = " ⏻ "
-      power_button:buttons(gears.table.join(
-			      awful.button({ }, 1, function () awful.util.spawn_with_shell("~/.scripts/rofi_powermenu.sh") end)
-      ))
-
+      s.clock = wibox.widget.textclock()
 
       -- Create a promptbox for each screen
-      s.mypromptbox = awful.widget.prompt()
       -- Create an imagebox widget which will contain an icon indicating which layout we're using.
       -- We need one layoutbox per screen.
       s.mylayoutbox = awful.widget.layoutbox(s)
@@ -62,43 +39,35 @@ awful.screen.connect_for_each_screen(function(s)
 	    shape  = gears.shape.rounded_bar,
 	 },
 	 layout   = {
-	    spacing_widget = {
-	       {
-		  forced_width  = 5,
-		  forced_height = dpi(35),
-		  thickness     = 1,
-		  color         = '#4C566A',
-		  widget        = wibox.widget.separator
-	       },
-	       valign = 'center',
-	       halign = 'center',
-	       widget = wibox.container.place,
-	    },
 	    spacing = 20,
 	    layout  = wibox.layout.fixed.horizontal
 	 },
 	 widget_template = {
 	    {
-	       wibox.widget.base.make_widget(),
-	       forced_height = 3,
-	       id            = 'background_role',
-	       widget        = wibox.container.background,
-	    },
-	    {
 	       {
-		  id     = 'clienticon',
-		  widget = awful.widget.clienticon,
+		  {
+		     {
+			id     = 'clienticon',
+			widget = awful.widget.clienticon,
+		     },
+		     margins = 5,
+		     widget  = wibox.container.margin,
+		  },
+		  bg = "#4C566A",
+		  shape = gears.shape.circle,
+		  widget = wibox.container.background,
 	       },
-	       margins = 2,
-	       widget  = wibox.container.margin
+	       margins = 8,
+	       widget = wibox.container.margin,
 	    },
 	    nil,
 	    create_callback = function(self, c, index, objects) --luacheck: no unused args
 	       self:get_children_by_id('clienticon')[1].client = c
 	    end,
-	    layout = wibox.layout.align.vertical,
+	    layout = wibox.layout.align.vertical,	    
 	 },
       }
+      
 
       -- spacer widget
       local spcr = wibox.widget.textbox("  ")
@@ -115,37 +84,52 @@ awful.screen.connect_for_each_screen(function(s)
       beautiful.systray_icon_spacing = 10
 	 
       -- Create the wibox
-      s.mywibar = awful.wibar{
-	    position = "bottom",
+      s.wibar = awful.wibar{
+	    --position = "bottom",
 	    screen = s,
-	    height = dpi(38),
-	    -- width = dpi(2500),
-	    opacity = .65
+	    height = dpi(42),
+	    width = dpi(2500),
+	    opacity = 1,
+	    shape = gears.shape.rounded_rect,
+	    opacity = .8,
+	    bg = "#3B4252",
+	    --fg = "#2E3440",
+	    border_width = 15,
       }
-
+      
       -- Add widgets to the wibar
-      s.mywibar:setup {
+      s.wibar:setup {	 
 	 layout = wibox.layout.align.horizontal,
+	 widget = {
+	    bg = "#D8DEE9",
+	    widget = wibox.container.background
+	 },
+	 expand = "none",
+	 
 	 { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            run_button,
+	    layout = wibox.layout.fixed.horizontal,
 	    spcr,
-            s.mypromptbox,
+	    s.mytasklist
 	    
 	 },
-	 s.mytasklist, -- Middle widget
+	 s.mytaglist,
+	 -- Middle widget
 	 { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
+	    layout = wibox.layout.fixed.horizontal,
 	    spcr,
-            systray,
+	    systray,
 	    spcr,
-            mytextclock,
-	    --s.mytaglist,
+	    mytextclock,
 	    power_button,
 	    spcr,
 	    s.mylayoutbox,
 	    spcr,
+	    s.clock,
+	    spcr,
 	 },
+	 
       }
+
+
 end)
 

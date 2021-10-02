@@ -2,7 +2,7 @@
 configuration {
     modi: [drun, window, combi];
     combi-modi: [drun, window];
-    font: "VictorMono Nerd Font Mono 17";
+    font: "SFMono Nerd Font Mono 17";
     icon-theme: "Papirus";
     show-icons: true;
     sidebar-mode: false;
@@ -38,7 +38,7 @@ element {
 
 element-text {
     background-color: #00000000;
-    font: "VictorMono Nerd Font Mono 12";
+    font: "SFMono Nerd Font Mono 12";
     text-color: inherit;
     horizontal-align: 0;
     vertical-align: 0.5;
@@ -76,7 +76,7 @@ entry {
     background-color: @background;
     text-color: @foreground;
     placeholder-color: @foreground;
-    font: "VictorMono Nerd Font Mono 16";
+    font: "SFMono Nerd Font Mono 16";
     placeholder: "Select Window";
     expand: true;
     blink: true;

@@ -8,10 +8,11 @@ local dpi = xresources.apply_dpi
 
 local theme = {}
 
-theme.font = "VictorMono Nerd Font Mono 12"
+theme.font = "SFMono Nerd Font Mono 12"
 
 -- Gaps
 theme.useless_gap = dpi(20)
+--theme.useless_gap = 0
 
 -- Borders
 theme.border_width = 7

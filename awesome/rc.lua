@@ -23,10 +23,11 @@ local dash_theme = dash_themes[1]
 
 -- wibar theme
 local bar_themes = {
-   "simple",
+   "windows",
+   "top_bar",
    "test",
 }
-local bar_theme = bar_themes[1]
+local bar_theme = bar_themes[3]
 
 
 --  Error handling

@@ -1,6 +1,6 @@
 
 configuration {
-    font: "VictorMono Nerd Font Mono 15";
+    font: "SFMono Nerd Font Mono 15";
     terminal: "alacritty";
     hover-select: true;
 }
@@ -34,14 +34,14 @@ inputbar {
     padding: 0.75% 0% 0.75% 0%;
     spacing: 0.3%;
     expand: false;
-    font: "VictorMono Nerd Font Mono 16";
+    font: "SFMono Nerd Font Mono 16";
 }
 
 entry {
     background-color: @background;
     text-color: @foreground;
     placeholder-color: @foreground;
-    font: "VictorMono Nerd Font Mono 16";
+    font: "SFMono Nerd Font Mono 16";
     placeholder: "y/n";
     expand: true;
     blink: true;

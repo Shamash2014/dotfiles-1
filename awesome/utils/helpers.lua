@@ -17,17 +17,34 @@ helper.notify = function(str)
    }
 end
 
--- adds maximized mask to screen
-helper.screen_mask = function (s, bg)
-   local mask = wibox{
-      visible = true,
-      ontop   = true,
-      type    = "splash",
-   }
-   awful.placement.maximize(mask)
-   mask.bg = bg
-   return mask
-end
+helper.circle_widget = function (bg, border, border_size, inside_margin, outside_margin, widget)
 
+   local new_widget = wibox.widget{
+      {
+	 { 
+	    {
+	       {
+		  {
+		     widget = widget
+		  },
+		  margins = inside_margin,
+		  widget = wibox.container.margin,
+	       },
+	       bg = bg,
+	       shape  = gears.shape.rounded_bar,
+	       widget = wibox.container.background,
+	    },
+	    margins = border_size,
+	    widget  = wibox.container.margin,
+	 },
+	 bg     = border,
+	 shape  = gears.shape.rounded_bar,
+	 widget = wibox.container.background,
+      },
+      margins = outside_margin,
+      widget = wibox.container.margin,
+   }
+   return new_widget
+end
 
 return helper 

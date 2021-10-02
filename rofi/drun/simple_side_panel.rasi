@@ -2,7 +2,7 @@
 configuration {
     modi: [drun, window, combi];
     combi-modi: [drun, window];
-    font: "VictorMono Nerd Font Mono 16";
+    font: "SFMono Nerd Font Mono 16";
     icon-theme: "Papirus";
     show-icons: true;
     sidebar-mode: false;
@@ -19,7 +19,7 @@ window {
     border-color: @border;
     border: 7px;
     margin: 0% 0% 0% 0%;
-    height: 97%;
+    height: 100%;
     width: 15%;
     xoffset: 0;
     yoffset: 0;
@@ -34,7 +34,7 @@ element {
 
 element-text {
     background-color: #00000000;
-    font: "VictorMono Nerd Font Mono 12";
+    font: "SFMono Nerd Font Mono 12";
     text-color: inherit;
     horizontal-align: 0;
     vertical-align: 0.5;
@@ -65,14 +65,14 @@ inputbar {
     //border-radius: 1% 0.5% 1% 0.5%;
     spacing: 0.3%;
     expand: false;
-    font: "VictorMono Nerd Font Mono 16";
+    font: "SFMono Nerd Font Mono 16";
 }
 
 entry {
     background-color: @background;
     text-color: @foreground;
     placeholder-color: @foreground;
-    font: "VictorMono Nerd Font Mono 16";
+    font: "SFMono Nerd Font Mono 16";
     placeholder: "Search";
     expand: true;
     blink: true;

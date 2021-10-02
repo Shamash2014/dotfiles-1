@@ -26,6 +26,7 @@ awful.rules.rules = {
 	  "riotclientux.exe",
 	  "discord",
 	  "Steam",
+	  "Kazam"
 	},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
@@ -50,7 +51,7 @@ awful.rules.rules = {
 
     -- Disable borders on clients
     {
-       rule_any = { class = { "Conky",  } },
+       rule_any = { class = { "Conky", "privateinternetaccess"  } },
        properties = { border_width = 0 }
     },
 

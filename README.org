@@ -1,2 +1,34 @@
-* README
-my dotfiles
+#+TITLE: README
+
+* Some juicy dots!
+
+**  General file outline
+
+- alacritty
+Holds my alacritty config.
+
+- emacs
+Holds my emacs config.
+
+- rofi
+Holds my rofi configs.
+
+- picom
+Holds my jonaburg picom config.
+
+- awesome
+Holds my awesome configs.
+
+- scripts
+Holds all the scripts used in my setup.
+
+-  wallpapers
+Holds wallpapers for each theme.
+
+- .theme
+Theme controller (currently unused as I currently only have one theme)
+
+** Changelog
+
+- Added more configs and created theme controller.
+

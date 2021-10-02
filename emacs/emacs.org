@@ -117,7 +117,7 @@
 #+begin_src emacs-lisp
 
   ;;font and font size
-  (set-face-attribute 'default nil :font "VictorMono Nerd Font Mono" :height 150)
+  (set-face-attribute 'default nil :font "SFMono Nerd Font Mono" :height 150)
 
 #+end_src
 
