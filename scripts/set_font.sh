@@ -46,8 +46,18 @@ echo "New font : "$font
 
 # configs to write
 
-dots="$HOME/.dotfiles"
-scripts="$dots/scripts"
-parents="$dots/controllers/parent_configs"
+dotconfig="$HOME/.config"
+parents="$HOME/.dotfiles"
+config_writer="$parents/scripts/config_writer.sh"
 
-eval "$scripts/config_writer.sh $parents/kitty/kitty.conf $dots/kitty/kitty.conf"
+CONFIGS=(
+    "rofi/powermenu/config.rasi"   # rofi powermenu config
+    "rofi/powermenu/confirm.rasi"  # rofi powermenu confirm
+    "rofi/window/panel.rasi"       # rofi window 
+    "rofi/drun/panel.rasi"         # rofi drun
+    "kitty/kitty.conf"             # kitty
+)
+
+for config in ${CONFIGS[@]}; do
+    eval "$config_writer $parents/$config $dotconfig/$config"
+done
