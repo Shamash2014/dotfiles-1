@@ -2,8 +2,8 @@
 
 **  General file outline
 
-*** alacritty
-Holds my alacritty config.
+*** Kitty 
+Holds my kitty config.
 
 *** emacs
 Holds my emacs config.
@@ -23,10 +23,16 @@ Holds all the scripts used in my setup.
 *** wallpapers
 Holds wallpapers for each theme.
 
-*** .theme
-Theme controller (currently unused as I currently only have one theme)
+*** Controllers
+Holds the controller files for my setup. Currently only using a theme controller.
 
 ** Changelog
 
-- Added more configs and created theme controller.
+- Added awesome support for theme controller.
+- Switched from alacritty to kitty due to font rendering issues.
+- Created working version of config writer. Currently only for changing fonts on kitty.
+
+** Ideas
+
+- Font controller to set system wide font easily?
 
