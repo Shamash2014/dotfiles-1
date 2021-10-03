@@ -30,9 +30,4 @@ Holds the controller files for my setup. Currently only using a theme controller
 
 - Added awesome support for theme controller.
 - Switched from alacritty to kitty due to font rendering issues.
-- Created working version of config writer. Currently only for changing fonts on kitty.
-
-** Ideas
-
-- Font controller to set system wide font easily?
-
+- Updated config writer to use awk and now so now it can perfectly copy spacing and syntax.
