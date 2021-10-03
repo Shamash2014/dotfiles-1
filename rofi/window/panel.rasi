@@ -2,13 +2,13 @@
 configuration {
     modi: [drun, window, combi];
     combi-modi: [drun, window];
-    font: "SFMono Nerd Font Mono 16";
+    font: "<font> 17";
     icon-theme: "Papirus";
     show-icons: true;
     sidebar-mode: false;
     terminal: "alacritty";
-    display-drun: "";
-    location: 3;
+    display-window: "";
+    location: 0;
 }
 
 @import "styles/nord.rasi"
@@ -16,12 +16,11 @@ configuration {
 window {
     background-color: @background;
     text-color: @foreground;
-    border-color: @border-alt;
-    border: 0px 30px 0px 0px;
-    border-radius: 1% 0% 0% 1%;
-    margin: 8% 0% 0% 0%;
-    height: 92%;
-    width: 12%;
+    border-color: @border;
+    border: 7px;
+    margin: 0%;
+    height: 40%;
+    width: 20%;
     xoffset: 0;
     yoffset: 0;
 }
@@ -29,39 +28,24 @@ window {
 element {
     background-color: @background;
     text-color: @foreground;
-    orientation: vertical;
-    padding: 2% 1% 2% 1%;
-}
-
-element-icon {
-    background-color: #00000000;
-    text-color: inherit;
-    size: 86px;
-    horizontal-align: 0.5;
-    vertical-align: 0.5;
-    text-color: inherit;
+    orientation: horizontal;
+    padding: 0.5%;
 }
 
 element-text {
     background-color: #00000000;
-    font: "SFMono Nerd Font Mono 10";
+    font: "<font> 12";
     text-color: inherit;
-    horizontal-align: 0.5;
+    horizontal-align: 0;
     vertical-align: 0.5;
     text-color: inherit;
 }
 
-mainbox {
-    background-color: @background;
-    border-color: @border;
-    border: -20px 20px -20px -20px;
-    margin: 0px -5px 0px 0px;
-}
 
 listview {
     background-color: @background;
     padding: 2%;
-    spacing: 10px;
+    spacing: 5px;
     columns: 1;
     border: 0% 0% 0% 0%;
     scrollbar: false;
@@ -72,23 +56,24 @@ listview {
 inputbar {
     background-color: @background;
     text-color: @foreground;
-    border-color: @border-alt;
+    border-color: @border;
     children: [prompt, entry];
     margin: 3% 2% 0% 2%;
-    border: 0% 0% 0.3% 0.12%;
-    padding: 0.4%;
-    border-radius: 0% 0% 0% 0.5%;
+    //border: 0.3% 0.12% 0.3% 0.12%;
+    border: 0% 0% 0.3% 0%;
+    padding: 0.75% 0% 0.75% 0%;
+    //border-radius: 1% 0.5% 1% 0.5%;
     spacing: 0.3%;
     expand: false;
-    font: "SFMono Nerd Font Mono 16";
+    font: "<font> 16";
 }
 
 entry {
     background-color: @background;
     text-color: @foreground;
     placeholder-color: @foreground;
-    font: "SFMono Nerd Font Mono 16";
-    placeholder: "Search";
+    font: "<font> 16";
+    placeholder: "Select Window";
     expand: true;
     blink: true;
 }
@@ -97,7 +82,6 @@ element normal.urgent,
 element alternate.urgent {
     background-color:               @urgent;
     text-color:                     @foreground;
-    border-radius:                  1%;
 }
 
 element normal.active,
@@ -109,9 +93,7 @@ element alternate.active {
 element selected {
     background-color:               @selected;
     text-color:                     @foreground;
-	border:							  0% 0% 0.4% 0%;
-    border-radius:                  0.5% 1.5% 0.5% 1.5%;
-    border-color:                  	@border-alt;
+    border-radius: 0.2% 0.1% 0.2% 0.1%;
 }
 
 element selected.urgent {

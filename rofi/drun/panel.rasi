@@ -2,29 +2,25 @@
 configuration {
     modi: [drun, window, combi];
     combi-modi: [drun, window];
-    font: "SFMono Nerd Font Mono 17";
+    font: "<font> 16";
     icon-theme: "Papirus";
     show-icons: true;
     sidebar-mode: false;
     terminal: "alacritty";
-    display-window: "";
-    location: 0;
+    display-drun: "";
+    location: 1;
 }
 
 @import "styles/nord.rasi"
-
-* {
-    //background: #292930;
-}
 
 window {
     background-color: @background;
     text-color: @foreground;
     border-color: @border;
     border: 7px;
-    margin: 0%;
-    height: 40%;
-    width: 20%;
+    margin: 0% 0% 0% 0%;
+    height: 100%;
+    width: 15%;
     xoffset: 0;
     yoffset: 0;
 }
@@ -38,7 +34,7 @@ element {
 
 element-text {
     background-color: #00000000;
-    font: "SFMono Nerd Font Mono 12";
+    font: "<font> 12";
     text-color: inherit;
     horizontal-align: 0;
     vertical-align: 0.5;
@@ -60,7 +56,7 @@ listview {
 inputbar {
     background-color: @background;
     text-color: @foreground;
-    border-color: @border;
+    border-color: @border-alt;
     children: [prompt, entry];
     margin: 3% 2% 0% 2%;
     //border: 0.3% 0.12% 0.3% 0.12%;
@@ -69,15 +65,15 @@ inputbar {
     //border-radius: 1% 0.5% 1% 0.5%;
     spacing: 0.3%;
     expand: false;
-    font: "VictorMono Nerd Font Mono 16";
+    font: "<font> 16";
 }
 
 entry {
     background-color: @background;
     text-color: @foreground;
     placeholder-color: @foreground;
-    font: "SFMono Nerd Font Mono 16";
-    placeholder: "Select Window";
+    font: "<font> 16";
+    placeholder: "Search";
     expand: true;
     blink: true;
 }
@@ -110,7 +106,7 @@ element selected.active {
     color:                          @foreground;
 }
 
-element.normal,
-element.alternate.normal {
+element normal,
+element alternate.normal {
     background-color: @background;
 }
