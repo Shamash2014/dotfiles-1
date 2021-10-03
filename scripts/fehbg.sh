@@ -1,5 +1,6 @@
 #!/bin/bash
 
+theme=$(~/.dotfiles/scripts/get_theme.sh)
 DIR=~/.dotfiles/wallpapers/$theme
 
 num=$(ls $DIR | wc -l)
@@ -9,4 +10,5 @@ files=(
     "$DIR"/*.jpg
 )
 filename=${files[$index]}
+echo $filename
 feh --bg-fill $filename

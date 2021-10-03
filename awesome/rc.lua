@@ -6,28 +6,29 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
                       require("awful.hotkeys_popup.keys")
-local autorun = true
 --  Appearance options
 -- =====================================================================
+
 -- theme
 local themes = {
+   "auto",
    "nord",
 }
 local theme = themes[1]
 
 -- dashboard theme
-local dash_themes = {
+local dashboards = {
    "simple",
 }
-local dash_theme = dash_themes[1]
+local dashboard = dashboards[1]
 
 -- wibar theme
-local bar_themes = {
+local bars = {
    "windows",
    "top_bar",
    "test",
 }
-local bar_theme = bar_themes[3]
+local bar = bars[3]
 
 
 --  Error handling
@@ -60,7 +61,7 @@ end
 
 --  User settings
 -- ======================================================================
-terminal = "alacritty"
+terminal = "kitty"
 browser = "qutebrowser"
 editor = os.getenv("EDITOR") or "emacs"
 editor_cmd = terminal .. " -e " .. editor
@@ -68,38 +69,43 @@ editor_cmd = terminal .. " -e " .. editor
 -- Getting keybinds
 local keys = require("utils.keybinds")
 -- Theme setup
-local theme_dir = "~/.config/awesome/themes/" ..theme .. "/"
-beautiful.init(theme_dir .. "theme.lua")
--- Dashboard setup
---require("elemental.dashboard."..dash_theme)
--- Bar setup
-require("elemental.bar."..bar_theme)
--- Autorun programs with bash script
-if autorun then
-   awful.util.spawn_with_shell("~/.scripts/startup.sh")
+if (theme == "auto") then
+   local t = io.popen("~/.dotfiles/scripts/get_theme.sh")
+   theme = t.read(t, "*all")
+   theme = string.sub(theme, 1, 4)
 end
+local theme_dir = "~/.config/awesome/themes/" .. theme .. "/"
+beautiful.init(theme_dir .. "theme.lua")
+beautiful.bar = bar
+beautiful.theme = theme
+
+-- Dashboard setup
+--require("elemental.dashboard."..beautiful.dash_theme)
+-- Bar setup
+require("elemental.bar." .. bar)
+-- Autorun programs with bash script
+awful.util.spawn_with_shell("~/.dotfiles/scripts/fehbg.sh")
 
 --  Layouts
 -- ======================================================================
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
-    awful.layout.suit.tile,
-    -- awful.layout.suit.tile.bottom,
-    -- awful.layout.suit.tile.top,
-    -- awful.layout.suit.fair,
-    -- awful.layout.suit.fair.horizontal,
-    -- awful.layout.suit.spiral,
-    -- awful.layout.suit.spiral.dwindle,
-    -- awful.layout.suit.max,
-    -- awful.layout.suit.max.fullscreen,
-    -- awful.layout.suit.magnifier,
-    -- awful.layout.suit.corner.nw,
-    -- awful.layout.suit.corner.ne,
-    -- awful.layout.suit.corner.sw,
-    -- awful.layout.suit.corner.se,
+   awful.layout.suit.tile,
+   awful.layout.suit.floating,
+   --awful.layout.suit.tile.bottom,
+   -- awful.layout.suit.tile.top,
+   -- awful.layout.suit.fair,
+   -- awful.layout.suit.fair.horizontal,
+   -- awful.layout.suit.spiral,
+   -- awful.layout.suit.spiral.dwindle,
+   -- awful.layout.suit.max,
+   -- awful.layout.suit.max.fullscreen,
+   -- awful.layout.suit.magnifier,
+   -- awful.layout.suit.corner.nw,
+   -- awful.layout.suit.corner.ne,
+   -- awful.layout.suit.corner.sw,
+   -- awful.layout.suit.corner.se,
 }
--- }}}
 
 --  Menu
 -- ============================================================

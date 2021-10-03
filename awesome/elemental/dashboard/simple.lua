@@ -29,10 +29,12 @@ dashboard = wibox{
    height  = screen_size[2]
 }
 
+notif
+
 awful.connect_for_each_screen(function (s)
 
-      dashboard:setup{
+      -- dashboard:setup{
 	 
-      }
+      -- }
       
 end)

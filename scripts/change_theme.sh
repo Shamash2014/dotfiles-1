@@ -13,6 +13,6 @@ do echo "Invalid number!"; done
 
 case $input in
     "1")
-	echo "nord" > ~/.dotfiles/.theme
+	echo "nord" > ~/.dotfiles/theme/controllers/theme
 	;;
 esac

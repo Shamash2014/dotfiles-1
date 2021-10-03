@@ -3,6 +3,7 @@ local naughty       = require("naughty")
 local gears         = require("gears")
 local beautiful     = require("beautiful")
 local hotkeys_popup = require("awful.hotkeys_popup.keys")
+local helper        = require("utils.helpers")
 
 -- initializing keys table
 local keys = {}

@@ -6,18 +6,19 @@ local gears     = require("gears")
 local naughty   = require("naughty")
 
 
-helper = {}
+helpers = {}
 
 -- sends notifiction with input string to naughty
-helper.notify = function(str)
+helpers.notify = function(str)
    naughty.notify{
       preset  = naughty.config.presets.normal,
       title   = "Helper Notification",
       text    = str,
+      timeout = 0
    }
 end
 
-helper.circle_widget = function (bg, border, border_size, inside_margin, outside_margin, widget)
+helpers.circle_widget = function (bg, border, border_size, inside_margin, outside_margin, widget)
 
    local new_widget = wibox.widget{
       {
@@ -47,4 +48,4 @@ helper.circle_widget = function (bg, border, border_size, inside_margin, outside
    return new_widget
 end
 
-return helper 
+return helpers

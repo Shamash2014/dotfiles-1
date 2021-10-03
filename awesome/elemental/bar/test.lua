@@ -107,7 +107,7 @@ awful.screen.connect_for_each_screen(function(s)
 	 y       = dpi(20),
 	 x       = dpi(40),
 	 bg      = gears.color.transparent,
-	 opacity = .85
+	 opacity = .7
       }
 
       local bigsep = wibox.widget {

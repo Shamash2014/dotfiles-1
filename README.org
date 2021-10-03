@@ -1,5 +1,3 @@
-#+TITLE: README
-
 * Some juicy dots!
 
 **  General file outline
