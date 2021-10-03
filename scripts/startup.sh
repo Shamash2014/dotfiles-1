@@ -1,11 +1,11 @@
 #!/bin/bash
 
 PROGRAMS=(
-    "~/.scripts/fehbg.sh"
+    "~/.dotfiles/scripts/fehbg.sh"
     "redshift"
-    #"kmix"
-    #"nm-applet"
-    "~/.scripts/spt.sh"
+    "kmix"
+    "nm-applet"
+    "~/.dotfiles/scripts/spt.sh"
     "dropbox"
     "pkttyagent"
     "picom"
