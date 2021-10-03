@@ -18,27 +18,27 @@ case $input in
 
     "1")
 	font="VictorMono Nerd Font Mono"
-	echo $font > ~/.dotfiles/controllers/font
+	echo $font > ~/.controllers/font
 	;;
 
     "2")
 	font="FiraCode Nerd Font Mono"
-	echo $font > ~/.dotfiles/controllers/font
+	echo $font > ~/.controllers/font
 	;;
 
     "3")
 	font="SFMono Nerd Font Mono"
-	echo $font > ~/.dotfiles/controllers/font
+	echo $font > ~/.controllers/font
 	;;
 
     "4")
 	font="JetBrainsMono Nerd Font Mono"
-	echo $font > ~/.dotfiles/controllers/font
+	echo $font > ~/.controllers/font
 	;;
 
     "5")
 	font="CaskaydiaCove Nerd Font Mono"
-	echo $font > ~/.dotfiles/controllers/font
+	echo $font > ~/.controllers/font
 	;;
     
 esac
