@@ -1,10 +1,14 @@
+--
+--       ======================================================
+--        \\\\\\\\  CONFIG BY GITHUB.COM/AIDANHOPPER  ////////
+--       ======================================================
+--
+
 local awful = require("awful")
 local beautiful = require("beautiful")
 local keys = require("utils.keybinds")
 local dpi = require("beautiful.xresources").apply_dpi
 
---  Rules
--- =============================================================
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },

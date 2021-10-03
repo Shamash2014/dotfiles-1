@@ -1,13 +1,21 @@
---  Needed libraries
--- =====================================================================
-local awful = require("awful")
-local beautiful = require("beautiful")
-local naughty = require("naughty")
-local menubar = require("menubar")
+--
+--       ======================================================
+--        \\\\\\\\  CONFIG BY GITHUB.COM/AIDANHOPPER  ////////
+--       ======================================================
+--
+
+--  Required libraries
+-- ======================================================================
+local awful         = require("awful")
+local beautiful     = require("beautiful")
+local naughty       = require("naughty")
+local menubar       = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
                       require("awful.hotkeys_popup.keys")
+
+		      
 --  Appearance options
--- =====================================================================
+-- ======================================================================
 
 -- theme
 local themes = {
@@ -22,13 +30,12 @@ local dashboards = {
 }
 local dashboard = dashboards[1]
 
--- wibar theme
+-- bar theme
 local bars = {
    "windows",
-   "top_bar",
-   "test",
+   "nicebar",
 }
-local bar = bars[3]
+local bar = bars[2]
 
 
 --  Error handling
@@ -55,9 +62,24 @@ do
         in_error = false
     end)
 end
--- }}}
 
+--  Functions
+-- ======================================================================
+function get_font()
+   local t    = io.popen("~/.dotfiles/scripts/get_font.sh")
+   local f    = t.read(t, "*all")
+   local font = string.sub(f, 1, string.len(f)-1)
+   return font
+end
 
+function get_theme(theme)
+   if (theme == "auto") then
+      local t = io.popen("~/.dotfiles/scripts/get_theme.sh")
+      theme   = t.read(t, "*all")
+      theme   = string.sub(theme, 1, string.len(theme)-1)
+   end
+   return theme
+end
 
 --  User settings
 -- ======================================================================
@@ -66,25 +88,36 @@ browser = "qutebrowser"
 editor = os.getenv("EDITOR") or "emacs"
 editor_cmd = terminal .. " -e " .. editor
 
--- Getting keybinds
-local keys = require("utils.keybinds")
--- Theme setup
-if (theme == "auto") then
-   local t = io.popen("~/.dotfiles/scripts/get_theme.sh")
-   theme = t.read(t, "*all")
-   theme = string.sub(theme, 1, 4)
-end
-local theme_dir = "~/.config/awesome/themes/" .. theme .. "/"
-beautiful.init(theme_dir .. "theme.lua")
-beautiful.bar = bar
-beautiful.theme = theme
 
--- Dashboard setup
+--  Theme setup
+-- ======================================================================
+theme                 = get_theme(theme)
+local theme_dir       = "~/.dotfiles/awesome/themes/" .. theme .. "/"
+beautiful.init(theme_dir .. "theme.lua")
+beautiful.bar         = bar
+beautiful.theme       = theme
+beautiful.font_name   = get_font()
+
+--  Dashboard setup
+-- ======================================================================
+-- not currently working :/
 --require("elemental.dashboard."..beautiful.dash_theme)
--- Bar setup
+
+
+--  Bar setup
+-- ======================================================================
 require("elemental.bar." .. bar)
--- Autorun programs with bash script
-awful.util.spawn_with_shell("~/.dotfiles/scripts/fehbg.sh")
+
+
+--  Getting keybinds
+-- ======================================================================
+local keys = require("utils.keybinds")
+
+
+--  Autorun programs with script
+-- ======================================================================
+awful.util.spawn_with_shell("~/.dotfiles/scripts/startup.sh")
+
 
 --  Layouts
 -- ======================================================================
@@ -107,8 +140,8 @@ awful.layout.layouts = {
    -- awful.layout.suit.corner.se,
 }
 
---  Menu
--- ============================================================
+--  Right click menu
+-- =======================================================================
 -- Create a launcher widget and a main menu
 myawesomemenu = {
    { "hotkeys", function () return false, hotkeys_popup.show_help end },
@@ -130,13 +163,12 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 
 --  Client rules
--- =============================================================
+-- ========================================================================
 require("utils.rules")
 
 
-
 --  Signals
--- =============================================================
+-- ========================================================================
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
@@ -150,7 +182,6 @@ client.connect_signal("manage", function (c)
         awful.placement.no_offscreen(c)
     end
 end)
-
 
 -- Disables when no border
 if beautiful.border_width > 0 then

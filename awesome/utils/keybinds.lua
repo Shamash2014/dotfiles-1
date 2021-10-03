@@ -1,3 +1,9 @@
+--
+--       ======================================================
+--        \\\\\\\\  CONFIG BY GITHUB.COM/AIDANHOPPER  ////////
+--       ======================================================
+--
+
 local awful         = require("awful")
 local naughty       = require("naughty")
 local gears         = require("gears")

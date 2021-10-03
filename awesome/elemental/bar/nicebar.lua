@@ -1,7 +1,13 @@
+--
+--       ======================================================
+--        \\\\\\\\  CONFIG BY GITHUB.COM/AIDANHOPPER  ////////
+--       ======================================================
+--
+
 local awful     = require("awful")
 local gears     = require("gears")
 local wibox     = require("wibox")
-local beautiful = require("beautiful")
+local b         = require("beautiful")
 local keys      = require("utils.keybinds")
 local dpi       = require("beautiful.xresources").apply_dpi
 local helper    = require("utils.helpers")
@@ -33,9 +39,9 @@ awful.screen.connect_for_each_screen(function(s)
 
       -- Create a tasklist widget
       s.mytasklist = awful.widget.tasklist {
-	 screen  = s,
-	 filter  = awful.widget.tasklist.filter.currenttags,
-	 buttons = keys.tasklist_buttons,
+	 screen    = s,
+	 filter    = awful.widget.tasklist.filter.currenttags,
+	 buttons   = keys.tasklist_buttons,
 	 style    = {
 	    shape  = gears.shape.rounded_bar,
 	 },
@@ -54,12 +60,12 @@ awful.screen.connect_for_each_screen(function(s)
 		     margins = 5,
 		     widget  = wibox.container.margin,
 		  },
-		  bg = "#4C566A",
-		  shape = gears.shape.circle,
+		  bg     = b.border_normal,
+		  shape  = gears.shape.circle,
 		  widget = wibox.container.background,
 	       },
 	       margins = 8,
-	       widget = wibox.container.margin,
+	       widget  = wibox.container.margin,
 	    },
 	    nil,
 	    create_callback = function(self, c, index, objects) --luacheck: no unused args
@@ -72,17 +78,9 @@ awful.screen.connect_for_each_screen(function(s)
 
       -- spacer widget
       local spcr = wibox.widget.textbox("   ")
-      
-      local icons   = wibox.widget.systray()      
-      -- local systray = wibox.widget{
-      -- 	 {
-      -- 	    icons,
-      -- 	    layout = wibox.layout.fixed.horizontal,
-      -- 	 },
-      -- 	 margins = 10,
-      -- 	 widget  = wibox.container.margin,
-      -- }
 
+      -- systray
+      local icons   = wibox.widget.systray()      
       local systray = helper.circle_widget(
 	    "", -- bg
 	    "", -- border
@@ -91,10 +89,8 @@ awful.screen.connect_for_each_screen(function(s)
 	    8,         -- outside margin
 	    icons     -- widget
       )
-       
-      beautiful.systray_icon_spacing = 20
-      beautiful.bg_systray = "#2E3440"
-      --beautiful.bg_systray = gears.color.transparent
+      b.systray_icon_spacing = 20
+      b.bg_systray = b.bg
 
       
       -- Create the wibox
@@ -109,13 +105,6 @@ awful.screen.connect_for_each_screen(function(s)
 	 bg      = gears.color.transparent,
 	 opacity = .7
       }
-
-      local bigsep = wibox.widget {
-	 visible    = false,
-	 span_ratio = 0.1,
-	 widget = wibox.widget.separator
-      }
-
       
       s.bar:setup {
 	 {
@@ -146,20 +135,20 @@ awful.screen.connect_for_each_screen(function(s)
 		  expand = "none",
 		  layout = wibox.layout.align.horizontal
 	       },
-	       bg      = "#2E3440",
+	       bg      = b.bg,
 	       --shape  = gears.shape.rounded_rect,
 	       widget  = wibox.container.background,
 	    },
 	    margins = 7,
 	    widget  = wibox.container.margin,
 	 },
-	 bg     = "#4C566A",
+	 bg     = b.border_normal,
 	 --shape  = gears.shape.rounded_rect,
 	 widget = wibox.container.background,
       }
       s.bar:struts {
 	 --top = dpi(70),
-	 top = dpi(s.bar.height - beautiful.useless_gap + 10),
+	 top = dpi(s.bar.height - b.useless_gap + 10),
       }
       
       

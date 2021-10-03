@@ -1,3 +1,9 @@
+--
+--       ======================================================
+--        \\\\\\\\  CONFIG BY GITHUB.COM/AIDANHOPPER  ////////
+--       ======================================================
+--
+
 local awful     = require("awful")
 local wibox     = require("wibox")
 local beautiful = require("beautiful")
