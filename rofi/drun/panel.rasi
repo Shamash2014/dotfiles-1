@@ -1,12 +1,11 @@
 
 configuration {
     modi: [drun, window, combi];
-    combi-modi: [drun, window];
     font: "<font> 16";
     icon-theme: "Papirus";
     show-icons: true;
     sidebar-mode: false;
-    terminal: "alacritty";
+    terminal: "kitty";
     display-drun: "";
     location: 1;
 }
@@ -20,7 +19,7 @@ window {
     border: 7px;
     margin: 0% 0% 0% 0%;
     height: 100%;
-    width: 15%;
+    width: 16%;
     xoffset: 0;
     yoffset: 0;
 }
