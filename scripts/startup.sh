@@ -3,10 +3,10 @@
 PROGRAMS=(
     "~/.dotfiles/scripts/fehbg.sh"
     "redshift"
-    "kmix"
-    "nm-applet"
+    # "kmix"
+    # "nm-applet"
     "~/.dotfiles/scripts/spt.sh"
-    "dropbox"
+    # "dropbox"
     "pkttyagent"
     "picom"
 )
