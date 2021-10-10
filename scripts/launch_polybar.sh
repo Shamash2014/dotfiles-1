@@ -6,8 +6,8 @@ killall -q polybar
 # polybar-msg cmd quit
 
 # Launch Polybar, using default config location ~/.config/polybar/config
-polybar left 2>&1 | tee -a /tmp/polybar.log & disown
-polybar right 2>&1 | tee -a /tmp/polybar.log & disown
-polybar spotify 2>&1 | tee -a /tmp/polybar.log & disown
+polybar --config=~/.dotfiles/polybar/config left 2>&1 &
+polybar --config=~/.dotfiles/polybar/config right 2>&1 &
+polybar --config=~/.dotfiles/polybar/config spotify 2>&1 &
 
 echo "Polybar launched..."
